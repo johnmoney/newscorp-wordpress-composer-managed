@@ -6,19 +6,10 @@
         {
             "type": "composer",
             "url": "https://wpackagist.org"
-        },
-        {
-          "type": "git",
-          "url": "https://github.com/pantheon-systems/pcc-php-sdk.git"
-        },
-        {
-          "type": "git",
-          "url": "https://github.com/pantheon-systems/pantheon-content-publisher-for-wordpress.git"
         }
     ],
     "require": {
-        "wpackagist-theme/rebootwp": "^1.2",
-        "pantheon-systems/pantheon-content-publisher-for-wordpress": "^1.2.2"
+        "wpackagist-theme/rebootwp": "^1.2"
     },
     "minimum-stability": "dev",
     "extra": {
