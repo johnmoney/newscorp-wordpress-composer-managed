@@ -1,0 +1,12 @@
+.is-style-rebootwp-heading-gradient {
+	-webkit-text-fill-color: transparent;
+    background: linear-gradient(45deg, #4f46e5, #7cd4fd, #f472b6); 
+    background-clip: text;
+    box-decoration-break: clone;
+    color: #f472b6;
+    display: inline-block;
+}
+
+.is-style-rebootwp-heading-text-shadow {
+    text-shadow: 0 2px 1px rgba(0, 0, 0, 0.1);
+}

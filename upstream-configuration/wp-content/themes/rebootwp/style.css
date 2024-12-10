@@ -1,0 +1,477 @@
+/*
+Theme Name: RebootWP
+Theme URI: https://rebootwp.com/
+Author: Scott Parry
+Author URI: https://scottparry.co/
+Description: Design without ever leaving your browser with the power of RebootWP & WordPress Site Editor. Customise every detail in real time — no coding required. RebootWP ships with thoughtfully designed Patterns, Templates & Styles that allow you to create pages and layouts quickly and easily.
+Tags: blog, portfolio, grid-layout, block-patterns, block-styles, custom-logo, custom-menu, editor-style, featured-images, full-site-editing, full-width-template, threaded-comments, translation-ready, wide-blocks
+Tested up to: 6.5
+Requires PHP: 7.3
+Version: 1.2.9
+License: GNU General Public License v3 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: rebootwp
+*/
+
+/* Reset */
+*,
+*::before,
+*::after {
+	box-sizing: inherit;
+}
+
+html {
+	box-sizing: border-box;
+	-moz-osx-font-smoothing: grayscale;
+	-webkit-font-smoothing: antialiased;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4; 
+    tab-size: 4;
+}
+
+/**
+ * Defaults. !important required to override editor style 
+ */
+body {
+    line-height: 150%;
+    margin: 0 !important;
+    padding: 0 !important;
+    text-rendering: optimizeLegibility;
+	-webkit-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-ms-word-wrap: break-word;
+	word-wrap: break-word;
+}
+
+h1, h2, h3 {
+    line-height: 115%;
+}
+
+h4, h5, h6 {
+    line-height: 120%;
+}
+
+::-moz-selection
+{
+	background: #fff5d1;
+	text-shadow: none;
+}
+
+::selection
+{
+	background: #fff5d1;
+	text-shadow: none;
+}
+
+::-webkit-input-placeholder
+{
+   opacity: 0.6;
+   font-size: 14px;
+}
+
+::-moz-placeholder
+{
+   opacity: 0.6;
+   font-size: 14px;
+}
+
+::-ms-input-placeholder
+{
+   opacity: 0.6;
+   font-size: 14px;
+}
+
+[placeholder]:focus::-webkit-input-placeholder
+{
+	transition: text-indent 0.4s 0.4s ease;
+  	text-indent: -100%;
+}
+
+[placeholder]:focus::-moz-placeholder
+{
+	transition: text-indent 0.4s 0.4s ease;
+	text-indent: -100%;
+}
+
+[placeholder]:focus::-ms-input-placeholder
+{
+	transition: text-indent 0.4s 0.4s ease;
+	text-indent: -100%;
+}
+
+input:-webkit-autofill
+{
+    -webkit-box-shadow: 0 0 0px 1000px #ffffff inset;
+}
+
+/* Reset block spacing */
+:where(.wp-site-blocks) > * {
+    margin: 0 !important;
+}
+
+/* Links */
+a, 
+a:focus {
+    transition: 150ms linear all; /* add some smoothness to hovers */
+    text-decoration: none !important; /* remove underlines to better target below */
+}
+
+/* Make links more accessible */
+a:hover,
+.entry-content p > a:not(:where(header *, footer *, button *, .wp-block-button *)) {
+	text-decoration: underline !important;
+}
+
+/* Text */
+b,
+strong {
+	font-weight: bold !important;
+}
+
+/* Lists */
+ol,
+ul {
+	padding: 0;
+}
+
+ul {
+	list-style: none;
+}
+
+ol:where(:not([class*="wp-block"])),
+ol:where(.wp-block-list),
+ul:where(:not([class*="wp-block"])),
+ul:where(.wp-block-list) {
+	padding-inline-start: var(--wp--preset--spacing--medium);
+}
+
+/* Forms */
+input,
+button,
+textarea,
+select {
+	font: inherit;
+}
+
+input[type="button"],
+input[type="email"],
+input[type="search"],
+input[type="submit"],
+input[type="tel"],
+input[type="text"],
+textarea {
+    appearance: none;
+    transition: 150ms linear all; /* add some smoothness to hovers */
+    color: var(--wp--preset--color--secondary) !important;
+    border-radius: 5px;
+    border: solid 1px var(--wp--preset--color--tenopaqueblack);
+    padding: .5em 1em;
+    font-size: var(--wp--preset--font-size--small);
+    width: 100%;
+}
+
+input[type="submit"] {
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+	text-decoration: underline !important;
+}
+
+select,
+textarea,
+.wp-block-post-comments-form input:not([type="submit"]):not([type="checkbox"]),
+.wp-block-post-comments-form textarea {
+	color: var(--wp--preset--color--secondary);
+	border-radius: 5px;
+	border: solid 1px var(--wp--preset--color--tenopaqueblack);
+	padding: .5em 1em;
+	font-size: var(--wp--preset--font-size--small);
+	width: 100%;
+}
+
+input[type="checkbox"],
+input[type="image"],
+input[type="radio"] {
+	width: auto;
+}
+
+label {
+	width: 100%;
+	display: block;
+}
+
+/* Placeholders */
+.block-editor-block-list__block[data-empty=true] [data-rich-text-placeholder] {
+    color: #757575 !important; /* ensure placeholder is visible on light or dark backgrounds */
+}
+
+::placeholder {
+	color: #757575 !important; /* ensure placeholder is visible on light or dark backgrounds */
+	font-size: var(--wp--preset--font-size--small);
+}
+
+/* Misc */
+div[class*="wp-block-"] figcaption {
+	color: var(--wp--preset--color--primary);
+	font-size: var(--wp--preset--font-size--x-small);
+	margin-bottom: 0;
+	margin-top: 20px;
+	text-align: center;
+}
+
+/* Code */
+pre,
+code {
+    background-color: var(--wp--preset--color--tertiary);
+    color: var(--wp--preset--color--seventyfiveopaquewhite);
+	font-family: Menlo, Monaco, Consolas, monospace !important;
+    font-size: var(--wp--preset--font-size--x-small);
+}
+
+.wp-block-code code {
+	overflow-wrap: normal;
+	overflow-x: scroll;
+	white-space: pre;
+}
+
+*:not(.wp-block-code) > pre,
+*:not(.wp-block-code) > code {
+	padding: 20px 25px;
+	position: relative;
+    border: none;
+	border-radius: 3px;
+}
+
+*:not(.wp-block-code) > code {
+	background-color: var(--wp--preset--color--light-grey);
+    border-radius: 3px;
+    color: var(--wp--preset--color--primary);
+    font-size: smaller;
+	font-weight: var(--wp--custom--font-weight--medium);
+	padding: 4px 6px;
+	position: relative;
+}
+
+/* Blockquote */
+.wp-block-quote {
+	border-color: var(--wp--preset--color--primary-accent) !important;
+	font-weight: bold;
+	font-size: larger;
+    margin: 1.75em 0 1.75em !important;
+    padding-left: 1em;
+}
+
+.wp-block-quote cite {
+	opacity: 0.5;
+	font-weight: 400;
+}
+
+/* Force equal post height */
+ul[class*=columns-].wp-block-post-template .wp-block-post > .wp-block-group
+{
+    height: 100%;
+}
+
+/* Comments */
+#respond {
+	background: var(--wp--preset--color--light-grey);
+	border-radius: 10px;
+	margin-top: 0 !important;
+	padding: 35px 50px;
+}
+
+.wp-block-post-comments-form[class*=-font-size] :where(.comment-reply-title), 
+.wp-block-post-comments-form[style*=font-size] :where(.comment-reply-title) {
+	font-size: var(--wp--preset--font-size--large);
+}
+
+p.logged-in-as {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.comment {
+	border-top: 1px solid var(--wp--preset--color--tenopaqueblack);
+	padding-top: 25px;
+}
+
+.comment-reply-link {
+	background: var(--wp--preset--color--tertiary);
+	border-radius: 3px;
+	color: var(--wp--preset--color--white);
+	font-size: var(--wp--preset--font-size--xxx-small);
+	padding: 3px 5px;
+	
+}
+
+.comment-awaiting-moderation{
+	color: 1px solid var(--wp--preset--color--secondary);
+}
+
+#commentform .required-field-message {
+	color: #ff0000;
+	font-size: var(--wp--preset--font-size--xxx-small);
+	float: right;
+	margin-top: 5px;
+}
+
+#commentform label,
+.comment-notes,
+.comment-form-cookies-consent  {
+	font-size: var(--wp--preset--font-size--small);
+}
+
+.wp-block-post-comments-form input[type="submit"] {
+	font-weight: 600;
+}
+
+textarea#comment {
+	border: 1px solid var(--wp--preset--color--tenopaqueblack);
+	border-radius: 3px;
+	margin-top: 5px;
+}
+
+/* Tagcloud */
+.wp-block-tag-cloud a {
+	background-color: var(--wp--preset--color--tertiary) !important;
+	border-radius: 3px;
+	color: var(--wp--preset--color--white) !important;
+	font-size: var(--wp--preset--font-size--xxx-small) !important;
+	font-weight: 600;
+	padding: 3px 6px;
+}
+
+/* Helpers */
+a.more-link {
+	display: block;
+}
+
+.gdpr {
+    bottom: 15px;
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+/* Used for styling purposes */
+.no-block-spacing {
+    margin-top: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+ /* Text Gradient */
+.rebootwp-text-gradient {
+    -webkit-text-fill-color: transparent;
+    background: linear-gradient(45deg, #4f46e5, #7cd4fd, #f472b6); 
+    background-clip: text;
+    box-decoration-break: clone;
+    color: #f472b6;
+    display: inline-block;
+}
+
+/**
+ * Animated link effect class. 
+ * Usage: class="link effect" on anchor 
+ */
+.link {
+    display: inline-block;
+    line-height: 1;
+    outline: none;
+    position: relative;
+    text-decoration: none;
+}
+
+.effect {
+    line-height: 0.75;
+    overflow: hidden;
+}
+
+.effect:hover {
+    color: #cccccc;
+}
+
+.effect::after {
+    background: var(--wp--preset--color--secondary-accent) !important;
+    content: ' ';
+    height: 1px;
+    margin-top: 0;
+    position: absolute;
+    right: 1px;
+    top: 50%;
+    transform: translate3d(-100%,0,0);
+    transition: transform 0.4s;
+    transition-timing-function: cubic-bezier(0.7,0,0.3,1);
+    width: 100%;
+}
+
+.effect:hover::after {
+    transform: translate3d(100%,0,0);
+}
+
+.effect::before {
+    color: var(--wp--preset--color--secondary-accent) !important;
+    content: attr(data-attr);
+    overflow: hidden;
+    position: absolute;
+    transition: width 0.4s 0.3s;
+    white-space: nowrap;
+    width: 0%;
+    z-index: 2;
+}
+
+.effect:hover::before {
+    width: 100%;
+}
+
+a.link.effect {
+    position: relative;
+    z-index: 999;
+}
+
+/* Style pattern previews to make more visible */
+.edit-site-page-patterns-dataviews .page-patterns-preview-field {
+    background: #e7ebee !important;
+    display: grid;
+    padding: 15px;
+    place-items: center;
+}
+
+/* Media Queries: Mobile */
+.is-content-justification-right {
+    float: left;
+}
+
+.rebootwp-not-mobile {
+    visibility: hidden;
+}
+
+.rebootwp-not-desktop {
+    visibility: visible;
+}
+
+/* Media Queries: Tablet (portrait) */
+@media only screen and (min-width: 767px) {
+
+}
+/* Media Queries: Tablet (landscape) */
+@media only screen and (min-width: 1023px) {
+
+}
+/* Media Queries: Regular Desktops */
+@media only screen and (min-width: 1278px) {
+    .rebootwp-not-mobile {
+        visibility: visible;
+    }
+
+    .rebootwp-not-desktop {
+        visibility: hidden;
+    }
+}
+/* Media Queries: Medium Desktops */
+@media only screen and (min-width: 1678px) {
+
+}
+/* Media Queries: Large Desktops */
+@media only screen and (min-width: 1918px) {
+
+}
