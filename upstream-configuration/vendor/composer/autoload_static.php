@@ -6,7 +6,27 @@ namespace Composer\Autoload;
 
 class ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5
 {
+    public static $files = array (
+        '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+    );
+
     public static $prefixLengthsPsr4 = array (
+        'P' => 
+        array (
+            'Psr\\Http\\Message\\' => 17,
+            'Psr\\Http\\Client\\' => 16,
+            'PccPhpSdk\\' => 10,
+            'Pantheon\\ContentPublisher\\' => 26,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+            'GraphQL\\' => 8,
+        ),
         'C' => 
         array (
             'Composer\\Installers\\' => 20,
@@ -14,9 +34,52 @@ class ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5
     );
 
     public static $prefixDirsPsr4 = array (
+        'Psr\\Http\\Message\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-factory/src',
+            1 => __DIR__ . '/..' . '/psr/http-message/src',
+        ),
+        'Psr\\Http\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/psr/http-client/src',
+        ),
+        'PccPhpSdk\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/pantheon-systems/pcc-php-sdk/src',
+        ),
+        'Pantheon\\ContentPublisher\\' => 
+        array (
+            0 => __DIR__ . '/../..' . '/wp-content/plugins/pantheon-content-publisher-for-wordpress/app',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'GraphQL\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cfpinto/graphql/src',
+        ),
         'Composer\\Installers\\' => 
         array (
             0 => __DIR__ . '/..' . '/composer/installers/src/Composer/Installers',
+        ),
+    );
+
+    public static $prefixesPsr0 = array (
+        'P' => 
+        array (
+            'Parsedown' => 
+            array (
+                0 => __DIR__ . '/..' . '/erusev/parsedown',
+            ),
         ),
     );
 
@@ -29,6 +92,7 @@ class ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5
         return \Closure::bind(function () use ($loader) {
             $loader->prefixLengthsPsr4 = ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5::$prefixLengthsPsr4;
             $loader->prefixDirsPsr4 = ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5::$prefixDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5::$prefixesPsr0;
             $loader->classMap = ComposerStaticInitba11bd0b81c3d4fa9b8c25ee3eb404e5::$classMap;
 
         }, null, ClassLoader::class);
